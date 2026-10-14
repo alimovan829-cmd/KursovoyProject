@@ -13,8 +13,8 @@ int main() {
 	Screen currentScreen = Screen::MainMenu;
 	bool running = true;
 
-	std::cout << "Чудесный мир битв\n\n";
-	std::cout << "Добро пожаловать!\n";
+	std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ\n\n";
+	std::cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!\n";
 
 	game::Monster m1(0, game::Species::dragon, 1), m2(1, game::Species::mermaid, 5), m3(2, game::Species::gnome, 1), m4(3, game::Species::gnome, 10), m5(4, game::Species::leshy, 3), m6(5, game::Species::imp, 4), m7(4, game::Species::leshy, 7);
 	std::vector<game::Monster *> collection ({ &m1, &m2, &m3, &m4, &m5, &m6, &m7 });
@@ -24,9 +24,9 @@ int main() {
 	while (running) {
 		switch (currentScreen) {
 			case Screen::MainMenu:
-				std::cout << "\nГлавное Меню" << std::endl;
-				std::cout << "1. Настроить отряд" << std::endl;
-				std::cout << "2. Выход" << std::endl;
+				std::cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ" << std::endl;
+				std::cout << "1. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ" << std::endl;
+				std::cout << "2. пїЅпїЅпїЅпїЅпїЅ" << std::endl;
 				switch (_getch()) {
 					case '1': currentScreen = Screen::TeamView; break;
 					case '2': running = false; break;
@@ -35,7 +35,7 @@ int main() {
 
 			case Screen::TeamView:
 
-				std::cout << "\nВаш отряд:\n";
+				std::cout << "\nпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ:\n";
 				{
 					int n = 0;
 					for (game::Monster* mon : current_team.GetList()) {
@@ -56,10 +56,10 @@ int main() {
 					}
 				}
 
-				std::cout << "Что хотите сделать?" << std::endl;
-				std::cout << "1. Добавить монстра в отряд" << std::endl;
-				std::cout << "2. Убрать монстра из отряда" << std::endl;
-				std::cout << "3. Назад" << std::endl;
+				std::cout << "пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ?" << std::endl;
+				std::cout << "1. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ" << std::endl;
+				std::cout << "2. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
+				std::cout << "3. пїЅпїЅпїЅпїЅпїЅ" << std::endl;
 
 				switch (_getch()) {
 					case '1': currentScreen = Screen::Collection; break;
@@ -67,9 +67,9 @@ int main() {
 					case '2':
 						int num = 0;
 						do {
-							std::cout << "Выберите монстра: ";
+							std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
 							std::cin >> num;
-							if (num < 1 || num > current_team.GetList().size()) std::cout << "Такого монстра нет!" << std::endl;
+							if (num < 1 || num > current_team.GetList().size()) std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ!" << std::endl;
 						} while (num < 1 || num > current_team.GetList().size());
 
 						current_team.RemoveMonster(num - 1);
@@ -79,7 +79,7 @@ int main() {
 				break;
 			case Screen::Collection:
 				
-				std::cout << "\nВаша коллекция:\n";
+				std::cout << "\nпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:\n";
 
 				int n = 0;
 				for (game::Monster* mon : collection) {
@@ -100,9 +100,9 @@ int main() {
 				}
 				int num = 0;
 				do {
-					std::cout << "Выберите монстра: ";
+					std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
 					std::cin >> num;
-					if (num < 1 || num > collection.size()) std::cout << "Такого монстра нет!" << std::endl;
+					if (num < 1 || num > collection.size()) std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ!" << std::endl;
 				} while (num < 1 || num > collection.size());
 				
 				current_team.AddMonster(collection[num - 1]);
