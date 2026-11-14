@@ -1,11 +1,13 @@
 #include "team.hpp"
 #include "monster.hpp"
 #include <iostream>
+#include <memory>
+
 
 namespace game
 {
 
-    Team::Team(const std::vector<Monster*>& monsters)
+    Team::Team(const std::vector<std::shared_ptr<Monster>> monsters)
         : m_list { monsters }
     {
         if (m_list.size() > 6) {
@@ -18,7 +20,7 @@ namespace game
         std::cout << "Объект класса Team (отряд) уничтожен" << std::endl;
     }
 
-    void Team::AddMonster(Monster* monster)
+    void Team::AddMonster(std::shared_ptr<Monster>& monster)
     {
         if (monster != nullptr) {
             auto f = std::find(m_list.begin(), m_list.end(), monster);

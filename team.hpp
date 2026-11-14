@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <string>
 #include <string_view>
-
+#include <memory>
 #include "monster.hpp"
 
 
@@ -14,9 +14,9 @@ namespace game
     {
 
     private:
-        std::vector<Monster *> m_list;
+        std::vector<std::shared_ptr<Monster>> m_list;
     public:
-        Team(const std::vector<Monster*>& monsters);
+        Team(const std::vector<std::shared_ptr<Monster>> monsters);
         ~Team();
 
         Team() = delete;
@@ -32,7 +32,7 @@ namespace game
 
 
         void UpdateExp(int exp);
-        void AddMonster(Monster* monster);
+        void AddMonster(std::shared_ptr<Monster>& monster);
         void RemoveMonster(int index);
     };
 

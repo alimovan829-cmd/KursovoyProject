@@ -1,6 +1,7 @@
 #include "monster.hpp"
 #include "move.hpp"
 #include <iostream>
+#include <memory>
 
 namespace game
 {

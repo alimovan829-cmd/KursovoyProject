@@ -5,6 +5,7 @@
 #include <string_view>
 #include "move.hpp"
 #include <vector>
+#include <memory>
 
 namespace game
 {
