@@ -14,8 +14,8 @@ int main() {
 	Screen currentScreen = Screen::MainMenu;
 	bool running = true;
 
-	std::cout << "Чудесный мир битв\n\n";
-	std::cout << "Добро пожаловать!\n";
+	std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ\n\n";
+	std::cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!\n";
 
 	std::shared_ptr<game::Monster> m1 = std::make_shared<game::Monster>(0, game::Species::dragon, 1); 
 	std::shared_ptr<game::Monster> m2 = std::make_shared<game::Monster>(1, game::Species::mermaid, 5);
@@ -31,10 +31,10 @@ int main() {
 	while (running) {
 		switch (currentScreen) {
 			case Screen::MainMenu:
-				std::cout << "\nГлавное Меню" << std::endl;
-				std::cout << "1. Настроить отряд" << std::endl;
-				std::cout << "2. Демонстрация" << std::endl;
-				std::cout << "3. Выход" << std::endl;
+				std::cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ" << std::endl;
+				std::cout << "1. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ" << std::endl;
+				std::cout << "2. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
+				std::cout << "3. пїЅпїЅпїЅпїЅпїЅ" << std::endl;
 				switch (_getch()) {
 					case '1': currentScreen = Screen::TeamView; break;
 					case '2': currentScreen = Screen::Demonstration; break;
@@ -44,7 +44,7 @@ int main() {
 
 			case Screen::TeamView:
 
-				std::cout << "\nВаш отряд:\n";
+				std::cout << "\nпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ:\n";
 				{
 					int n = 0;
 					for (std::shared_ptr<game::Monster> mon : current_team.GetList()) {
@@ -65,10 +65,10 @@ int main() {
 					}
 				}
 
-				std::cout << "Что хотите сделать?" << std::endl;
-				std::cout << "1. Добавить монстра в отряд" << std::endl;
-				std::cout << "2. Убрать монстра из отряда" << std::endl;
-				std::cout << "3. Назад" << std::endl;
+				std::cout << "пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ?" << std::endl;
+				std::cout << "1. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ" << std::endl;
+				std::cout << "2. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
+				std::cout << "3. пїЅпїЅпїЅпїЅпїЅ" << std::endl;
 
 				switch (_getch()) {
 					case '1': currentScreen = Screen::Collection; break;
@@ -76,9 +76,9 @@ int main() {
 					case '2':
 						int num = 0;
 						do {
-							std::cout << "Выберите монстра: ";
+							std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
 							std::cin >> num;
-							if (num < 1 || num > current_team.GetList().size()) std::cout << "Такого монстра нет!" << std::endl;
+							if (num < 1 || num > current_team.GetList().size()) std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ!" << std::endl;
 						} while (num < 1 || num > current_team.GetList().size());
 
 						current_team.RemoveMonster(num - 1);
@@ -88,7 +88,7 @@ int main() {
 				break;
 			case Screen::Collection:
 			{
-				std::cout << "\nВаша коллекция:\n";
+				std::cout << "\nпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:\n";
 
 				int n = 0;
 				for (std::shared_ptr<game::Monster> mon : collection) {
@@ -109,9 +109,9 @@ int main() {
 				}
 				int num = 0;
 				do {
-					std::cout << "Выберите монстра: ";
+					std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
 					std::cin >> num;
-					if (num < 1 || num > collection.size()) std::cout << "Такого монстра нет!" << std::endl;
+					if (num < 1 || num > collection.size()) std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ!" << std::endl;
 				} while (num < 1 || num > collection.size());
 
 				current_team.AddMonster(collection[num - 1]);
@@ -122,48 +122,48 @@ int main() {
 				}
 			case Screen::Demonstration:
 				{
-				std::cout << "Демонстрация работы unique_ptr:" << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ unique_ptr:" << std::endl;
 				std::unique_ptr<game::Monster> m1 = std::make_unique<game::Monster>(49, game::Species::dragon, 77);
-				std::cout << "Создаётся объект типа Монстр с указателем unique_ptr: " << SpeciesToString(m1->GetSpecie()) << ", lvl " << m1->GetLvl() << std::endl;
-				std::cout << "Владение передаётся другому указателю." << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ unique_ptr: " << SpeciesToString(m1->GetSpecie()) << ", lvl " << m1->GetLvl() << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." << std::endl;
 				std::unique_ptr<game::Monster> m2 = std::move(m1);
-				std::cout << "Объектом теперь владеет новый указатель: ";
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
 				std::cout << SpeciesToString(m2->GetSpecie()) << ", lvl " << m2->GetLvl() << std::endl;
-				std::cout << "Изначальный указатель теперь пуст: " << m1 << std::endl;
-				std::cout << "Объект уничтожается при выходе из блока без delete:" << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ: " << m1 << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ delete:" << std::endl;
 				}
 
-				std::cout << "\nДемонстрация работы shared_ptr:" << std::endl;
-				std::cout << "Создаётся объект типа Монстр с указателем shared_ptr:" << std::endl;
+				std::cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ shared_ptr:" << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ shared_ptr:" << std::endl;
 				std::shared_ptr<game::Monster> shared1 = std::make_shared<game::Monster>(49, game::Species::dragon, 77);
-				std::cout << "Счётчик владельцев объекта: " << shared1.use_count() << std::endl;
-				std::cout << "Создаётся копия указателя на тот же объект: " << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << shared1.use_count() << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: " << std::endl;
 				std::shared_ptr<game::Monster> shared2 = shared1;
-				std::cout << "Счётчик владельцев объекта: " << shared1.use_count() << std::endl;
-				std::cout << "Значение оригинала приравнивается к nullptr. Объект все еще существует." << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << shared1.use_count() << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ nullptr. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." << std::endl;
 				shared1 = nullptr;
-				std::cout << "Счётчик владельцев объекта: " << shared2.use_count() << std::endl;
-				std::cout << "Значение копии тоже приравнивается к nullptr. Счётчик владельцев становится равен 0. Объект уничтожается:" << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << shared2.use_count() << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ nullptr. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 0. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:" << std::endl;
 				shared2 = nullptr;
 
 
-				std::cout << "\nДемонстрация работы weak_ptr:" << std::endl;
-				std::cout << "Создаётся объект типа Монстр с указателем shared_ptr:" << std::endl;
+				std::cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ weak_ptr:" << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ shared_ptr:" << std::endl;
 				std::shared_ptr<game::Monster> shared = std::make_shared<game::Monster>(49, game::Species::dragon, 77);
-				std::cout << "Счётчик владельцев объекта: " << shared.use_count() << std::endl;
-				std::cout << "Создаётся наблюдатель для этого объекта с указателем weak_ptr" << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << shared.use_count() << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ weak_ptr" << std::endl;
 				std::weak_ptr<game::Monster> weak = shared;
-				std::cout << "Счётчик владельцев не увеличивается: " << shared.use_count() << std::endl;
-				std::cout << "Через weak_ptr можно проверить существует ли объект: ";
-				if (weak.lock()) std::cout << "Объект существует." << std::endl;
-				else std::cout << "Объект не существует." << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << shared.use_count() << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅ weak_ptr пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
+				if (weak.lock()) std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." << std::endl;
+				else std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." << std::endl;
 
-				std::cout << "Значение shared_ptr приравнивается к nullptr, объект уничтожается: " << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ shared_ptr пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ nullptr, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << std::endl;
 				shared = nullptr;
 
-				std::cout << "Снова проверяем существование объекта через weak_ptr: ";
-				if (weak.lock()) std::cout << "Объект существует." << std::endl;
-				else std::cout << "Объект не существует." << std::endl;
+				std::cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ weak_ptr: ";
+				if (weak.lock()) std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." << std::endl;
+				else std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." << std::endl;
 
 				currentScreen = Screen::MainMenu;
 				break;
